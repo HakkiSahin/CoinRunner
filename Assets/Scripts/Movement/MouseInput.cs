@@ -16,12 +16,12 @@ public class MouseInput : MonoBehaviour
         }
         else if (Input.GetMouseButton(0))
         {
-            _moveFactorX = Input.mousePosition.x - _lastFrameMousePositionX;
-            _lastFrameMousePositionX = Input.mousePosition.x;
+            _moveFactorX = (Input.mousePosition.x - _lastFrameMousePositionX) / 5f;
+            //_lastFrameMousePositionX = Input.mousePosition.x;
         }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            _moveFactorX = 0;
-        }
+        // else if (Input.GetMouseButtonUp(0))
+        // {
+        //     _moveFactorX = 0;
+        // }
     }
 }

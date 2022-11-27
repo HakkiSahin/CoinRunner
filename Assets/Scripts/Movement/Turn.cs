@@ -40,6 +40,12 @@ public struct Turn
     {
         turnObject.rotation =
             Quaternion.Lerp(turnObject.rotation,
-                Quaternion.Euler(turnObject.rotation.eulerAngles.x, 0, -value), frame * turnSpeed);
+                Quaternion.Euler(turnObject.rotation.eulerAngles.x, value, 0), frame * turnSpeed);
+    }
+
+    public void ExecuteY()
+    {
+        turnObject.rotation = Quaternion.Lerp(turnObject.rotation,
+            Quaternion.Euler(turnObject.rotation.eulerAngles.x, value, 0), frame * turnSpeed);
     }
 }

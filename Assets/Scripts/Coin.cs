@@ -10,6 +10,7 @@ public class Coin : MonoBehaviour
     public MouseInput _mouseInput;
 
     public Turn _turn;
+    public Turn _turnLeftRight;
 
     private void Start()
     {
@@ -19,12 +20,13 @@ public class Coin : MonoBehaviour
 
     private void Update()
     {
-        leftRight.MoveLeftRight(_mouseInput.MoveFactorX, Time.deltaTime);
+        // leftRight.MoveLeftRight(_mouseInput.MoveFactorX, Time.deltaTime);
         forward.MoveFoward(Time.deltaTime);
     }
 
     private void FixedUpdate()
     {
-        _turn.SetTurnValue(_mouseInput.MoveFactorX).SetFrame(Time.fixedDeltaTime).Execute();
+        //_turn.SetTurnValue(_mouseInput.MoveFactorX).SetFrame(Time.fixedDeltaTime).Execute();
+        _turnLeftRight.SetTurnValue(_mouseInput.MoveFactorX).SetFrame(Time.fixedDeltaTime).ExecuteY();
     }
 }

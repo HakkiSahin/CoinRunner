@@ -7,11 +7,11 @@ public class Follow : MonoBehaviour
 {
     public Transform followThis;
     public Transform followMain;
-    private Vector3 followObject;
 
-    public float angleSpeed = 5f;
-    public float posSpeed = 15f;
+    public float angleSpeed = 10f;
+    public float posSpeed = 5f;
 
+    
     private void Start()
     {
         followThis = transform.parent.GetChild(transform.GetSiblingIndex() - 1);
@@ -20,17 +20,12 @@ public class Follow : MonoBehaviour
 
     private void Update()
     {
-        FollowObject();
         //follow this position lerp
-        transform.localPosition = Vector3.Lerp(transform.localPosition, followObject, Time.deltaTime * posSpeed);
+        transform.localPosition =
+            Vector3.Lerp(transform.localPosition, followThis.localPosition, Time.deltaTime * posSpeed);
         //follow this rotation lerp
-        //transform.LookAt(followThis);
-        transform.localRotation = Quaternion.Slerp(transform.localRotation, followThis.localRotation, Time.deltaTime * angleSpeed);
-    }
 
-    void FollowObject()
-    {
-        followObject = followThis.localPosition;
-        followObject.z = transform.localPosition.z;
+        transform.localRotation =
+            Quaternion.Slerp(transform.localRotation, followThis.localRotation, Time.deltaTime * angleSpeed);
     }
 }
